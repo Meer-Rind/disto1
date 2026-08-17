@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///home/kali/Videos/distributin/workspace-01a00f27-e390-76ee-97ce-89ce7ad55d62/src/views/NotFound.tsx"],"sourcesContent":["import{Link}from'react-router-dom';export default function NotFound(){return <div className=\"empty\"><small>404</small><h1>This page is off the shelf.</h1><p>The page you’re looking for may have moved or no longer exists.</p><Link className=\"btn dark\" to=\"/\">Return home</Link></div>}\n"],"names":["NotFound","className","to"],"mappings":";;;;;AAAA;;;AAAkD,SAASA;IAAW,qBAAO,6LAAC;QAAIC,WAAU;;0BAAQ,6LAAC;0BAAM;;;;;;0BAAW,6LAAC;0BAAG;;;;;;0BAAgC,6LAAC;0BAAE;;;;;;0BAAmE,6LAAC,uLAAI;gBAACA,WAAU;gBAAWC,IAAG;0BAAI;;;;;;;;;;;;AAAwB;KAA/NF"}}]
-}
