@@ -1,0 +1,7 @@
+/** @type {import('next').NextConfig} */
+const isProd=process.env.NODE_ENV==='production';
+const framePolicy=isProd?"frame-ancestors 'none'":"frame-ancestors 'self' https://*.e2b.app https://*.arena.site";
+const csp=["default-src 'self'","base-uri 'self'","form-action 'self'",framePolicy,"object-src 'none'",`script-src 'self' 'unsafe-inline'${isProd?'':" 'unsafe-eval'"}`,"style-src 'self' 'unsafe-inline'","font-src 'self' data:","img-src 'self' data: blob:","connect-src 'self' ws: wss:","media-src 'self' data: blob:","worker-src 'self' blob:",...(isProd?["upgrade-insecure-requests"]:[])].join('; ');
+const securityHeaders=[{key:'Content-Security-Policy',value:csp},{key:'Referrer-Policy',value:'strict-origin-when-cross-origin'},{key:'X-Content-Type-Options',value:'nosniff'},...(isProd?[{key:'X-Frame-Options',value:'DENY'}]:[]),{key:'Permissions-Policy',value:'camera=(), microphone=(), geolocation=(), payment=()'},{key:'Cross-Origin-Opener-Policy',value:'same-origin'}];
+const nextConfig={reactStrictMode:true,output:'standalone',poweredByHeader:false,compress:true,allowedDevOrigins:['3000-i8y9tj7zxyav9mirzldgy.e2b.app','*.e2b.app','*.arena.site'],images:{unoptimized:true},experimental:{optimizePackageImports:['lucide-react']},async headers(){return[{source:'/(.*)',headers:securityHeaders},{source:'/images/:path*',headers:[{key:'Cache-Control',value:'public, max-age=31536000, immutable'}]}]}};
+export default nextConfig;

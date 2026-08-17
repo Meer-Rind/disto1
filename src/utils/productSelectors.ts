@@ -1,0 +1,11 @@
+import{Product,products}from'../data/products';
+const unique=(items:Product[])=>[...new Map(items.map(p=>[p.id,p])).values()];
+export const getNewArrivals=(limit=12)=>products.filter(p=>p.tags.includes('New')).slice(0,limit);
+export const getBestSelling=(limit=12)=>[...products].sort((a,b)=>b.orders-a.orders||b.rating-a.rating).slice(0,limit);
+export const getDeals=(limit=12)=>products.filter(p=>p.tags.includes('Deal')).sort((a,b)=>(b.msrp-b.price)-(a.msrp-a.price)).slice(0,limit);
+export const getReadyToShip=(limit=12)=>products.filter(p=>p.stock>0&&p.tags.includes('Ready to Ship')).slice(0,limit);
+export const getRelated=(product:Product,limit=8)=>unique([...products.filter(p=>p.id!==product.id&&p.brand===product.brand),...products.filter(p=>p.id!==product.id&&p.category===product.category)]).slice(0,limit);
+export const getRecommended=(product:Product,limit=8)=>unique([...getRelated(product,limit),...getBestSelling(limit)]).filter(p=>p.id!==product.id).slice(0,limit);
+export const getCrossCategory=(categoryNames:string[],limit=8)=>categoryNames.map(c=>products.find(p=>p.category===c&&p.stock>0)).filter(Boolean).slice(0,limit) as Product[];
+export const getRecentlyViewed=(ids:number[],limit=12)=>ids.map(id=>products.find(p=>p.id===id)).filter(Boolean).slice(0,limit) as Product[];
+export const getSavedProducts=(ids:number[])=>ids.map(id=>products.find(p=>p.id===id)).filter(Boolean) as Product[];

@@ -1,0 +1,3 @@
+import{useState}from'react';
+export const brandSlug=(brand:string)=>brand.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+export default function BrandLogo({brand,variant='compact',showName=false}:{brand:string;variant?:'micro'|'compact'|'card'|'hero';showName?:boolean}){const[failed,setFailed]=useState(false);const initials=brand.split(/\s+/).map(x=>x[0]).join('').slice(0,3).toUpperCase();return <span className={`brand-logo brand-logo-${variant}`}>{failed?<span className="brand-logo-fallback">{initials}</span>:<img src={`/images/brands/${brandSlug(brand)}.svg`} alt={`${brand} brand mark`} loading="lazy" decoding="async" onError={()=>setFailed(true)}/>} {showName&&<b>{brand}</b>}</span>}

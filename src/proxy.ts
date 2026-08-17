@@ -1,0 +1,3 @@
+import{NextRequest,NextResponse}from'next/server';import{cookieName,validSession}from'./lib/adminAuth';
+export function proxy(request:NextRequest){if(process.env.NODE_ENV!=='production')return NextResponse.next();const{pathname}=request.nextUrl;if(pathname==='/admin/login')return NextResponse.next();if(pathname.startsWith('/admin')&&!validSession(request.cookies.get(cookieName)?.value)){const url=request.nextUrl.clone();url.pathname='/admin/login';url.searchParams.set('returnTo',pathname);return NextResponse.redirect(url)}return NextResponse.next()}
+export const config={matcher:['/admin/:path*']};

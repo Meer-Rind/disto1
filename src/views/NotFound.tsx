@@ -1,0 +1,1 @@
+import{Link}from'react-router-dom';export default function NotFound(){return <div className="empty"><small>404</small><h1>This page is off the shelf.</h1><p>The page you’re looking for may have moved or no longer exists.</p><Link className="btn dark" to="/">Return home</Link></div>}

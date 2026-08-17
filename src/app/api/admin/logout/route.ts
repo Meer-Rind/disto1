@@ -1,0 +1,2 @@
+import{NextResponse}from'next/server';import{cookieName}from'../../../../lib/adminAuth';
+export async function POST(request:Request){const response=NextResponse.json({ok:true});const https=request.headers.get('x-forwarded-proto')==='https'||request.url.startsWith('https://');response.cookies.set(cookieName,'',{httpOnly:true,sameSite:https?'none':'lax',secure:https,partitioned:https&&process.env.NODE_ENV!=='production',path:'/',maxAge:0});return response}
