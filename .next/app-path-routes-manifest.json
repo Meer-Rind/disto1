@@ -1,8 +1,0 @@
-{
-  "/[[...slug]]/page": "/[[...slug]]",
-  "/_global-error/page": "/_global-error",
-  "/_not-found/page": "/_not-found",
-  "/api/admin/login/route": "/api/admin/login",
-  "/api/admin/logout/route": "/api/admin/logout",
-  "/api/admin/session/route": "/api/admin/session"
-}

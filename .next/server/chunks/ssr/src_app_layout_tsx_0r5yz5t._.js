@@ -1,3 +1,0 @@
-module.exports=[27572,a=>{"use strict";var b=a.i(7997);a.s(["default",0,function({children:a}){return(0,b.jsxs)("html",{lang:"en","data-scroll-behavior":"smooth",children:[(0,b.jsxs)("head",{children:[(0,b.jsx)("link",{rel:"preload",href:"/images/hero-global-marketplace.webp",as:"image",type:"image/webp"}),(0,b.jsx)("meta",{name:"color-scheme",content:"light"})]}),(0,b.jsx)("body",{children:a})]})},"metadata",0,{title:{default:"Meridian Supply Co. — Wholesale Distribution",template:"%s | Meridian Supply Co."},description:"Professional multi-category wholesale distribution platform for qualified business buyers.",robots:{index:!1,follow:!1}}])},50645,function(a){a.n(a.i(27572))}];
-
-//# sourceMappingURL=src_app_layout_tsx_0r5yz5t._.js.map
